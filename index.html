@@ -8,70 +8,9 @@
 <body>
 	<header></header>
 	<main>
-		<div class="wrapper" id="x"></div>
+		<div class="wrapper" id="main"></div>
 	</main>
 	<footer></footer>
-	<script>
-		var keys={
-			0:['q','w','e','r','t','y','u','i','o','p'],
-			1:['a','s','d','f','g','h','j','k','l'],
-			2:['z','x','c','v','b','n','m'],
-			length:3
-		}
-		var hash={
-			q:'qq.com',
-			w:'weibo.com',
-			e:'ele.me',
-			r:'renren.com',
-			t:'tianya.com',
-			y:'yahoo.com',
-			u:'uc.com',
-			i:'iqiyi.com',
-			o:'opera.com',
-			p:undefined,
-			m:'mi.com',
-		}
-		//取出localStorage里面的zzz对应的hash
-		var hashInLocalStorage=JSON.parse(localStorage.getItem('zzz')||'null')
-		if(hashInLocalStorage){
-			hash=hashInLocalStorage
-		}	
-		index=0
-		while(index<keys['length']){// index 0 1 2
-			div=document.createElement('div')
-			x.appendChild(div)
-
-			row=keys[index]
-			index2=0
-			while(index2<row.length){
-				kbd=document.createElement('kbd')
-				div.appendChild(kbd)
-				kbd.textContent=row[index2]
-				button=document.createElement('button')
-				button.textContent='E'
-				button.id=row[index2]
-				button.onclick=function(whichkey){
-					key=whichkey.target.id//q w e...
-					url=prompt('给我一个网址')//qq.com
-					hash[key]=url//哈希变更
-					localStorage.setItem('zzz',JSON.stringify(hash))
-					console.log(hash)
-				}
-				kbd.appendChild(button)	
-				index2+=1							
-			}
-			index=index+1
-		}
-		document.onkeypress=function(keydown){
-			//keydown包含你所需要的所有信息
-			key=keydown.key
-			website=hash[key]
-			console.log(website)
-			//location.href='http://'+website
-			//location代表地址栏，href代表地址
-			window.open('http://'+website,'_blank')
-			//新窗口打开网页
-		}
-	</script>
+	<script src="./main.js"></script>
 </body>
 </html>
