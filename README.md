@@ -3,4 +3,4 @@
 2. 每个按键的网址可以自定义；
 3. 鼠标悬浮在按键上的时候会显示编辑按钮。
 # 截图
-![image](https://github.com/JenvyXU/keyboard-nav/raw/master/dot.png)
+![image](https://github.com/JenvyXU/keyboard-nav/blob/master/shot.PNG)
