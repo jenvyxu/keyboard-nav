@@ -2,7 +2,7 @@
 a{text-decoration: none;}
 body{
 	height: 100vh;
-	background: url(./wall.jpg) grey center center no-repeat;
+	background: url(./wall.png) grey center center no-repeat;
 	background-size: cover;
 	display: flex;
 	justify-content: center;
