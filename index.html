@@ -4,10 +4,34 @@
 	<meta charset="utf-8">
 	<title>键盘导航</title>
 	<link rel="stylesheet" href="./style.css">
+	<script src="//at.alicdn.com/t/font_961629_6mv5gitscxe.js"></script>
 </head>
 <body>
-	<header></header>
 	<main>
+		<form class="searchBar" action="http://www.baidu.com/baidu">
+			<div class="inputBar">
+				<input id="keyword" type="text" name="word" value="asd">
+				<ul class="searchEngin" id="searchEngin">	
+					<li class="active">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-icswap"></use>
+						</svg>
+					</li>
+					<li>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-icswap"></use>
+						</svg>
+					</li>					
+				</ul>	
+
+			</div>
+			<div class="searchSwitch">
+				<input id="searchButton" type="submit" name="button" class="google" value="百度一下">
+			</div>
+		</form>	
+			
+			
+		
 		<div class="wrapper" id="main"></div>
 	</main>
 	<footer></footer>

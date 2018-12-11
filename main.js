@@ -3,7 +3,10 @@
 		var keys=hashA['keys']
 		var hash=hashA['hash']
 		//2.生成键盘
-		generateKeyboard(keys,hash)
+
+
+		switchSearchEngin()
+		//generateKeyboard(keys,hash)
 		//3.监听用户动作
 		listenToUser(hash)
 		//下面的使封装的函数
@@ -96,8 +99,9 @@
 					}
 				}
 		}
-
+//切换搜索引擎
 		function listenToUser(hash){
+
 			document.onkeypress=function(keydown){
 				//keydown包含你所需要的所有信息
 				var key=keydown.key
@@ -107,4 +111,33 @@
 				window.open('http://'+website,'_blank')
 				//新窗口打开网页
 			}	
+		}
+
+		function switchSearchEngin(){
+			var baidu=true;
+			var searchEngin = document.querySelector('#searchEngin');
+			var logo=document.querySelector('#searchEngin>li:nth-child(1)')
+			var searchButton=document.querySelector('#searchButton')
+			var currentEngin=document.querySelector('.searchBar')
+			var inputBar=document.querySelector('#keyword')
+			searchEngin.addEventListener('click', function(){
+				console.log(baidu);console.log(currentEngin);
+				if(baidu){
+					logo.classList.remove('active')			
+					logo=document.querySelector('#searchEngin>li:nth-child(2)')	
+					logo.classList.add('active')
+					searchButton.setAttribute('value', 'Google');
+					currentEngin.setAttribute('action','http://www.google.com/search')
+					inputBar.setAttribute('name','q')		
+											
+				}else{
+					logo.classList.remove('active')
+					logo=document.querySelector('#searchEngin>li:nth-child(1)')
+					logo.classList.add('active')
+					searchButton.setAttribute('value', '百度一下');	
+					currentEngin.setAttribute('action','http://www.baidu.com/baidu')
+					inputBar.setAttribute('name','word')		
+				}
+				baidu=!baidu
+			},false);		
 		}
