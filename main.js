@@ -5,10 +5,13 @@
 		//2.生成键盘
 
 
+
+
+
 		switchSearchEngin()
 		//generateKeyboard(keys,hash)
 		//3.监听用户动作
-		listenToUser(hash)
+		//listenToUser(hash)
 		//下面的使封装的函数
 		function getFromLocalStorage(name){
 			return JSON.parse(localStorage.getItem(name)||'null')
@@ -120,6 +123,10 @@
 			var searchButton=document.querySelector('#searchButton')
 			var currentEngin=document.querySelector('.searchBar')
 			var inputBar=document.querySelector('#keyword')
+			var searchWhat=''
+			inputBar.addEventListener('input',function(){
+				searchWhat=document.getElementById('keyword').value			
+			})
 			searchEngin.addEventListener('click', function(){
 				console.log(baidu);console.log(currentEngin);
 				if(baidu){
