@@ -4,14 +4,12 @@
 		var hash=hashA['hash']
 		//2.生成键盘
 
-
-
-
-
 		switchSearchEngin()
-		//generateKeyboard(keys,hash)
+		generateKeyboard(keys,hash)
 		//3.监听用户动作
-		//listenToUser(hash)
+
+		listenToUser(hash)
+			
 		//下面的使封装的函数
 		function getFromLocalStorage(name){
 			return JSON.parse(localStorage.getItem(name)||'null')
@@ -76,7 +74,6 @@
 			}	
 			return {"keys":keys,"hash":hash}
 		}
-
 		function generateKeyboard(keys,hash){
 			for(var index=0;index<keys['length'];index=index+1){
 				var div=tag('div')
@@ -102,20 +99,36 @@
 					}
 				}
 		}
-//切换搜索引擎
 		function listenToUser(hash){
+			var inputBar=document.querySelector('#keyword')
+			var inputting=true
+			inputBar.addEventListener('focus',function(e){
+				inputting=true
+			})
+			inputBar.addEventListener('focusout',function(e){
+				inputting=false
+				document.onkeypress=function(keydown){
+					//keydown包含你所需要的所有信息
+					var key=keydown.key
+					var website=hash[key]
+					//location.href='http://'+website
+					//location代表地址栏，href代表地址
+					if(!inputting){
+						window.open('http://'+website,'_blank')	//新窗口打开网页
+					}
+					
+				}	
+					
 
-			document.onkeypress=function(keydown){
-				//keydown包含你所需要的所有信息
-				var key=keydown.key
-				var website=hash[key]
-				//location.href='http://'+website
-				//location代表地址栏，href代表地址
-				window.open('http://'+website,'_blank')
-				//新窗口打开网页
-			}	
+
+			})
+			
+	
+			
+			
+
 		}
-
+	//切换搜索引擎
 		function switchSearchEngin(){
 			var baidu=true;
 			var searchEngin = document.querySelector('#searchEngin');
