@@ -9,15 +9,33 @@ ul{list-style: none;}
  }
 body{
 	height: 100vh;
-	background: url(./wall1.png) white center center no-repeat;
+	background: url(./chinese.png)  no-repeat;
 	background-size: cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-width: 1200px;
+	height: 100vh;
+	font-family: 'Simsun','Arial',sans-serif;
+}
+input{
+	
+}
+.key .text{
+	font-family: 'Arial',sans-serif;
 }
 .searchBar{
 	margin: 10px auto 100px auto ;
 	display: flex;	
+}
+.hat{
+	position: absolute;
+	top:-18px;
+	left:-18px;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: url(./hat.svg) center/100% no-repeat;
 }
 .searchBar>.inputBar{
 	position: relative;
@@ -25,18 +43,18 @@ body{
 .searchBar>.inputBar>ul>li{
 	display: none;
 	position: absolute;
-	right: 18px;
-	top:7px;
-	width:30px;
-	height:30px;
+	right: 16px;
+	top:10px;
+	width:24px;
+	height:24px;
 }
+
 .searchBar>.inputBar>ul>li.active{
 	display: inline-block;
 }
 .searchBar>.inputBar>ul>li:nth-child(1){
 	background: url(./baidu.svg) center no-repeat;
 	background-size: 100%;
-	
 }
 .searchBar>.inputBar>ul>li:nth-child(2){
 	background: url(./google.svg);
@@ -45,21 +63,30 @@ body{
 	width:20px;
 	height: 20px;
 	position: absolute;
-	top:5px;
-	right:-18px;
+	top:2px;
+	right:-16px;
 }
 .searchBar>.inputBar>ul:hover{
 	cursor: pointer;
+}
+
+.searchBar>.inputBar:hover>ul>li>.icon {
+
 }
 .searchBar>.inputBar>#keyword{
 	width:585px;
 	outline: none;
 	font-size: 16px;
-	padding: 12px 16px;
+	padding: 12px 45px 12px 16px;
 	border-radius:4px; 
 	border: 1px solid #E9EAE9;
 	box-shadow: 0 1px 8px #E1E2E1;
 	transition: all .3s;
+	line-height: 18px;
+	font-family: "Helvetica Neue",'Arial',sans-serif;
+}
+.searchBar>.inputBar>#keyword::placeholder{
+	color: #C4C5C4;
 }
 .searchBar>.inputBar>#keyword:hover{
 	box-shadow: 0 3px 8px 2px #E1E2E1;
@@ -71,23 +98,29 @@ body{
 .searchBar>.searchSwitch>input[name="button"]{
 	font-size: 16px;
 	line-height: 20px;
-	padding:10px 0px;
+	padding:12px 0px;
 	width: 120px;
+	border: none;
 	background: #c5c5c5;
-	border: 1px solid #ddd;
-	border-radius: 3px;
+	border-radius: 2px;
+	font-weight: bold;
 	outline: none;
+	letter-spacing: 1px;
+	transition: all .3s;
+	color: #8C8F8F;
+	font-family: "Helvetica Neue",'Arial',sans-serif;
 }
 .searchBar>.searchSwitch>input[name="button"]:hover{
 	cursor: pointer;
+	box-shadow: 1px 1px 4px #C7C8C7;
+	background: #DADBDA;
 }
 .wrapper{
-	padding: 40px 20px;
+	padding: 40px 20px 80px 20px;
 	background: rgba(255,255,255,0.2);
 	border-radius: 10px;
 }
 kbd{
-	border:1px solid red;
 	width: 6em;
 	height:6em;
 	display: inline-block;
@@ -102,9 +135,6 @@ kbd>button{
 }
 kbd:hover>button{
 	display: inline-block;
-}
-header{
-
 }
 main{
 	text-align: center;
@@ -139,6 +169,10 @@ main{
 	font-size: 20px;
 	position: relative;
 }
+.key.down{
+	margin: 0 8px -2px 12px
+}
+
 .key img{
 	width:16px;
 	height: 16px;
@@ -146,6 +180,7 @@ main{
 	left: 4px;
 	bottom: 2px;
 	border-radius: 2px;
+	
 }
 .key .text{
 	position: absolute;
@@ -154,7 +189,7 @@ main{
 }
 .key>button{
 	border-radius: 3px;
-	font-size: 2px;
+	font-size: 14px;
 	border:none;
 	color: #c5c5c5;
 	background-color: #292929;
