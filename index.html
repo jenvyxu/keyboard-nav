@@ -3,23 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<title>键盘导航</title>
+	<link rel="stylesheet" href="./normalize.css">
 	<link rel="stylesheet" href="./style.css">
-	<script src="//at.alicdn.com/t/font_961629_6mv5gitscxe.js"></script>
+	<script src="//at.alicdn.com/t/font_961629_tb593remnw.js"></script>
 </head>
 <body>
 	<main>
 		<form class="searchBar" action="http://www.baidu.com/baidu" target="_blank">
 			<div class="inputBar">
-				<input id="keyword" type="text" name="word">
+				<span class="hat"></span>
+				<input id="keyword" type="text" name="word" placeholder="点击右边图标切换搜索引擎" 
+				autocomplete="off">
 				<ul class="searchEngin" id="searchEngin">	
 					<li class="active">
 						<svg class="icon" aria-hidden="true">
-							<use xlink:href="#icon-icswap"></use>
+							<use xlink:href="#icon-swap-vertical"></use>
 						</svg>
 					</li>
 					<li>
 						<svg class="icon" aria-hidden="true">
-							<use xlink:href="#icon-icswap"></use>
+							<use xlink:href="#icon-swap-vertical"></use>
 						</svg>
 					</li>					
 				</ul>	
