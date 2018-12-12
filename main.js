@@ -89,44 +89,49 @@
 					var img=createImage(hash[row[index2]])
 
 					var kbd=tag('kbd')
-					kbd.className='key'
-
+					kbd.className='key '+row[index2]
 					kbd.appendChild(span)
 					kbd.appendChild(button)
 					kbd.appendChild(img)
-
 					div.appendChild(kbd)			
 					}
 				}
 		}
 		function listenToUser(hash){
 			var inputBar=document.querySelector('#keyword')
-			var inputting=true
+			var inputting=false
 			inputBar.addEventListener('focus',function(e){
 				inputting=true
+				e.target.placeholder=''
 			})
 			inputBar.addEventListener('focusout',function(e){
 				inputting=false
-				document.onkeypress=function(keydown){
-					//keydown包含你所需要的所有信息
-					var key=keydown.key
-					var website=hash[key]
-					//location.href='http://'+website
-					//location代表地址栏，href代表地址
-					if(!inputting){
-						window.open('http://'+website,'_blank')	//新窗口打开网页
-					}
-					
-				}	
-					
-
-
+				e.target.placeholder='点击右边图标切换搜索引擎'	
 			})
-			
-	
-			
-			
+			document.onkeypress=function(keydown){
+				//keydown包含你所需要的所有信息
+				var key=keydown.key
+				var website=hash[key]
+				var currentKey=document.querySelector('.key.'+key)
+				currentKey.classList.add('down')
+				//location.href='http://'+website
+				//location代表地址栏，href代表地址
+				if(!inputting){
+					setTimeout(function(){
+						window.open('http://'+website,'_blank')	//新窗口打开网页	
+					},500)
+				}			
+			}
+			document.onkeyup=function(keyup){
+				//keydown包含你所需要的所有信息
+				var key=keyup.key
+				var currentKey=document.querySelector('.key.'+key)
+				currentKey.classList.remove('down')
+		
 
+			}
+
+			
 		}
 	//切换搜索引擎
 		function switchSearchEngin(){
